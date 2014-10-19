@@ -1,7 +1,7 @@
 # Problem 
-- if you're reading a longform article on a website, you can't bookmark within the text, just like putting down a regular newspaper
-- we shouldn't mandate that longform articles should be app-based 
-- as a solution we want an tool to bookmark your position to come back to later 
+- if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper
+- we shouldn't mandate that longform articles be app-based
+- as a solution we want an tool to bookmark your position(s) to come back to later 
 
 # Solution 
 Bookmark tool for 
@@ -33,5 +33,5 @@ On the older Android stock browser, click events fire when scrolling
 - @hey_benjamin (Frontline Club)
 
 ## Thank you  
-- Sense Checking @chrishutchinson
-(Pocket, Saturday Android debugging, onboarding suggestion, GA-style script.. :)
+- Sense Checking (Pocket)
+- @chrishutchinson (Saturday Android debugging, onboarding suggestion, GA-style script.. :)
