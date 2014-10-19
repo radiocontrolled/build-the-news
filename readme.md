@@ -1,7 +1,7 @@
 # Problem 
 - if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper
 - we shouldn't mandate that longform articles be app-based
-- as a solution we want an tool to bookmark your position(s) to come back to later 
+- as a solution we present an HTML5 tool to bookmark your position(s) to come back to later 
 
 # Solution 
 Bookmark tool for 
@@ -12,17 +12,17 @@ Bookmark tool for
 On the older Android stock browser, click events fire when scrolling
 
 ## Roadmap Ideas 
-- UI
--- smooth scrolling
--- onboarding function e.g. append Save My Spot to viewport bottom
--- “favourites” page to collect saved spots from multiple stories
-- Personalisation / User Preferences
--- set / clear localStorage via icons in My Placeholder menu
---  behaviour of page on-reload 
-- Share saved spots across multiple devices 
--- Pocket for personal use (Sense Checking) 
--- send saved spots to other users 
-- Publisher-friendly
+- UI<br/>
+-- smooth scrolling<br/>
+-- onboarding function e.g. append Save My Spot to viewport bottom<br/>
+-- “favourites” page to collect saved spots from multiple stories<br/>
+- Personalisation / User Preferences<br/>
+-- set / clear localStorage via icons in My Placeholder menu<br/>
+--  behaviour of page on-reload <br/>
+- Share saved spots across multiple devices <br/>
+-- Pocket for personal use (Sense Checking) <br/>
+-- send saved spots to other users <br/>
+- Publisher-friendly<br/>
 -- Add Save My Spot to any Webpage with a single line of JavaScript (like Google Analytics)
 
 ## Team
