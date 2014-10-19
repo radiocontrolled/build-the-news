@@ -1,0 +1,44 @@
+
+/* alison benjamin * /
+ */
+
+body {
+  position: relative;
+ /* font-family: Times!important;*/
+}
+
+.jumbotron{
+	/*background: url('http://placekitten.com/g/2000/300');*/
+	background-image: url("http://172.16.95.17:8888/times/img/websiteHeader.png");
+	background: #000;
+	color: white;
+	font-family: Times!important;
+	font-weight: bold!important;
+}
+
+
+/*
+.jumbotron h1,
+.jumbotron p{
+	font-weight: bold!important;
+}*/
+
+.fa{
+	color: white;
+}
+.fa-close{
+	color: red;
+}
+
+.bookmarked{
+	color: pink;
+}
+
+[data-paragraph]:hover,
+.saved{
+	background: #efefef;
+}
+
+.btn-group, .btn-group-vertical{
+	padding-top: .5em;
+}
