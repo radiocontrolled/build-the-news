@@ -14,6 +14,9 @@ function highlightBookmark(){
 	icon.classList.toggle("bookmarked");
 }
 
+function clearItemFromStorage(){
+	console.log(this.parentNode.parentNode.dataset.history);
+}
 
 
 function setting(e){
@@ -24,7 +27,7 @@ function setting(e){
 	window.localStorage.setItem(e.target.dataset.paragraph, e.target.dataset.paragraph);			
 	var target = e.target.dataset.paragraph;
 	var anchor = e.target.id;
-
+	
 	
 	
 	e.target.classList.add("saved");
@@ -33,14 +36,23 @@ function setting(e){
 	dataTarget = e.target.dataset.paragraph;
 	var ulOfSavedParagraphs = document.getElementById("retrieveBookmark");
 	var listItem = document.createElement('li');
+	listItem.setAttribute('data-history',e.target.dataset.paragraph);
 	var listItemAnchor = document.createElement('a');
+	
 	var sentenceFragment = e.target.innerHTML;
-	var sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){5})(.*)/,"$1…");
-	var listText = sentenceFragment; 
-	var close = "<i class='fa fa-close navbar-toggle'></i>";
+	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){8})(.*)/,"$1…");
 	
+	var icon = document.createElement("i");
+	icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
+	icon.addEventListener('click', clearItemFromStorage);
+
+	var text = document.createTextNode(sentenceFragment);
+
 	
-	listItemAnchor.appendChild(document.createTextNode(listText));
+	listItemAnchor.appendChild(text);
+	listItemAnchor.appendChild(icon);
+	
+	//listItemAnchor.parentNode.insertBefore(text,parentNode.nextSibling);
 	listItemAnchor.classList.add('scrollto');
 	listItemAnchor.addEventListener('click', getting);
 	listItemAnchor.setAttribute("href","#"+anchor);
@@ -53,23 +65,19 @@ function setting(e){
 }
 
 function getting(dataset,e){
-
-
+	
 	var storageRetrieved = window.localStorage.getItem(dataset);
-	console.log(storageRetrieved);
+	//console.log(storageRetrieved);
 
 	var defaultAnchorOffset = 0;
 	var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
 
 	
 	// scroll to the element	
-	
-	
 		
-	//window.localStorage.clear();
-	
 	
 }		
+
 
 
 /* when the user opens a new page 
@@ -126,7 +134,7 @@ $('[data-toggle="popover"]')
     	data = this.parentNode.parentNode.previousSibling.dataset.paragraph;
     	getting(data);
     	$('[data-toggle="popover"]').popover('hide');
-	})
+	});
 
 
 
