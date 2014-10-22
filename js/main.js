@@ -13,14 +13,15 @@ function highlightBookmark(){
 }
 
 function clearItemFromStorage(){
+	var key = window.localStorage.getItem(this.parentNode.parentNode.dataset.history);
+	console.log("history to clear: " + key);
 //	window.localStorage.removeItem(this.parentNode.parentNode.dataset.history);
 //	window.localStorage.getItem(this.parentNode.parentNode.dataset.history);
 }
 
-
 function setting(data){
 		
-	/* set localStorage key/value to the data-paragraph value */
+	/* set localStorage key & value to the data-paragraph value */
 	window.localStorage.setItem(data, data);
 	
 	var target = document.querySelector('[data-paragraph="' + data + '"]');
@@ -55,25 +56,22 @@ function setting(data){
 	listItem.appendChild(listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
-	/* add a link to the popover with an event listener */
-	
-	
-	
 		
 }
 
-function getting(dataset,e){
+function getting(){
 	
-	var storageRetrieved = window.localStorage.getItem(dataset);
-	console.log(storageRetrieved);
-
-	var defaultAnchorOffset = 0;
-	var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
+	var key = this.parentNode.dataset.history;
+	var storageRetrieved = window.localStorage.getItem(key);
+	console.log("storage retrieved: " + storageRetrieved);
+	
+	
+	/* locate paragraph in document */ 
+	//var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
 
 	
 	// scroll to the element	
-		
-	
+			
 }		
 
 
@@ -113,7 +111,6 @@ for(var i = 0, j = paragraphs.length; i < j; i++){
 	paragraphs[i].setAttribute('data-paragraph','pg-' + i);
 	paragraphs[i].setAttribute('data-toggle','popover');
 	paragraphs[i].setAttribute('id',i);
-//	paragraphs[i].addEventListener('click', setting);
 }
 
 /* tooltip that appears over paragraph */
