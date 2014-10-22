@@ -2,12 +2,10 @@
  * @author alison benjamin
  */
 
-/* bookmarker */
 
 var positionToBookmark,
 	icon,
 	dataTarget;
-
 
 function highlightBookmark(){
 	icon = document.querySelector("#bookmark");	
@@ -15,31 +13,29 @@ function highlightBookmark(){
 }
 
 function clearItemFromStorage(){
-	console.log(this.parentNode.parentNode.dataset.history);
+//	window.localStorage.removeItem(this.parentNode.parentNode.dataset.history);
+//	window.localStorage.getItem(this.parentNode.parentNode.dataset.history);
 }
 
 
-function setting(e){
-	
-	e.preventDefault();
+function setting(data){
 		
 	/* set localStorage key/value to the data-paragraph value */
-	window.localStorage.setItem(e.target.dataset.paragraph, e.target.dataset.paragraph);			
-	var target = e.target.dataset.paragraph;
-	var anchor = e.target.id;
+	window.localStorage.setItem(data, data);
 	
+	var target = document.querySelector('[data-paragraph="' + data + '"]');
+	var anchor = target.id;
 	
-	
-	e.target.classList.add("saved");
+	target.classList.add("saved");
 	
 	/* create a list item using the data-target as a reference */	
-	dataTarget = e.target.dataset.paragraph;
+	dataTarget = target.dataset.paragraph;
 	var ulOfSavedParagraphs = document.getElementById("retrieveBookmark");
 	var listItem = document.createElement('li');
-	listItem.setAttribute('data-history',e.target.dataset.paragraph);
+	listItem.setAttribute('data-history',target.dataset.paragraph);
 	var listItemAnchor = document.createElement('a');
 	
-	var sentenceFragment = e.target.innerHTML;
+	var sentenceFragment = target.innerHTML;
 	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){8})(.*)/,"$1…");
 	
 	var icon = document.createElement("i");
@@ -61,13 +57,15 @@ function setting(e){
 	
 	/* add a link to the popover with an event listener */
 	
+	
+	
 		
 }
 
 function getting(dataset,e){
 	
 	var storageRetrieved = window.localStorage.getItem(dataset);
-	//console.log(storageRetrieved);
+	console.log(storageRetrieved);
 
 	var defaultAnchorOffset = 0;
 	var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
@@ -100,8 +98,6 @@ function newWindowShowBookmark(){
 		else if((window.localStorage.getItem('position') !== null) || window.localStorage.getItem('position') !== 0){
 			icon = document.querySelector("#bookmark");	
 			icon.classList.toggle("bookmarked");
-			selected = true;
-
 		}
 
 }
@@ -117,7 +113,7 @@ for(var i = 0, j = paragraphs.length; i < j; i++){
 	paragraphs[i].setAttribute('data-paragraph','pg-' + i);
 	paragraphs[i].setAttribute('data-toggle','popover');
 	paragraphs[i].setAttribute('id',i);
-	paragraphs[i].addEventListener('click', setting);
+//	paragraphs[i].addEventListener('click', setting);
 }
 
 /* tooltip that appears over paragraph */
@@ -132,7 +128,7 @@ $('[data-toggle="popover"]')
 	.parent()
 	.delegate('button#close-me', 'click', function() {
     	data = this.parentNode.parentNode.previousSibling.dataset.paragraph;
-    	getting(data);
+    	setting(data);
     	$('[data-toggle="popover"]').popover('hide');
 	});
 
