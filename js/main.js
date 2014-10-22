@@ -13,10 +13,18 @@ function highlightBookmark(){
 }
 
 function clearItemFromStorage(){
-	var key = window.localStorage.getItem(this.parentNode.parentNode.dataset.history);
-	console.log("history to clear: " + key);
-//	window.localStorage.removeItem(this.parentNode.parentNode.dataset.history);
-//	window.localStorage.getItem(this.parentNode.parentNode.dataset.history);
+	
+	//clear item from storage
+	var key = this.parentNode.parentNode.dataset.history;
+	window.localStorage.removeItem(key);
+	
+	//remove list item from My Placeholders menu
+	var itemToDelete = document.querySelector('[data-history="' + key + '"]');
+	itemToDelete.parentNode.removeChild(itemToDelete);
+	
+	//remove .saved class from paragraph
+	var saved = document.querySelector('[data-paragraph="' + key + '"]');
+	saved.classList.remove("saved");
 }
 
 function setting(data){
