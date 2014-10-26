@@ -5,7 +5,9 @@
 
 var positionToBookmark,
 	icon,
-	dataTarget;
+	dataTarget,
+	articleStorage = {};
+
 
 function highlightBookmark(){
 	icon = document.querySelector("#bookmark");	
@@ -13,10 +15,20 @@ function highlightBookmark(){
 }
 
 function clearItemFromStorage(){
-	
-	//clear item from storage
+
+	//clear saved spot from storage
 	var key = this.parentNode.parentNode.dataset.history;
-	window.localStorage.removeItem(key);
+
+	for(var i in articleStorage){
+		if(articleStorage.hasOwnProperty(i)){
+			if(key == articleStorage[i]){
+				delete articleStorage[i];
+			}
+		}
+	}
+	
+	//update storage
+	localStorage.setItem('articleStorage', JSON.stringify(articleStorage));
 	
 	//remove list item from My Placeholders menu
 	var itemToDelete = document.querySelector('[data-history="' + key + '"]');
@@ -29,8 +41,10 @@ function clearItemFromStorage(){
 
 function setting(data){
 		
-	/* set localStorage key & value to the data-paragraph value */
-	window.localStorage.setItem(data, data);
+	
+	articleStorage[data] = data;
+	localStorage.setItem('articleStorage', JSON.stringify(articleStorage));
+		
 	
 	var target = document.querySelector('[data-paragraph="' + data + '"]');
 	var anchor = target.id;
@@ -57,22 +71,23 @@ function setting(data){
 	listItemAnchor.appendChild(text);
 	listItemAnchor.appendChild(icon);
 	
-	//listItemAnchor.parentNode.insertBefore(text,parentNode.nextSibling);
 	listItemAnchor.classList.add('scrollto');
 	listItemAnchor.addEventListener('click', getting);
-	listItemAnchor.setAttribute("href","#"+anchor);
+	listItemAnchor.setAttribute("href","#"+ anchor);
 	listItem.appendChild(listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
-		
+
 }
+
 
 function getting(){
 	
 	var key = this.parentNode.dataset.history;
-	var storageRetrieved = window.localStorage.getItem(key);
-	console.log("storage retrieved: " + storageRetrieved);
+	var storageRetrieved = localStorage.getItem(key);
+	//console.log("storage retrieved: " + storageRetrieved);
 	
+	//end test
 	
 	/* locate paragraph in document */ 
 	//var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
@@ -82,26 +97,82 @@ function getting(){
 			
 }		
 
+function scrollTo(location){
+	
+}
 
 
 /* when the user opens a new page 
- * if they already have a bookmark in localStorage
- * ensure they can see the bookmark
- * 
- * this is because often when you open up 
- * a webpage again the broswer will 
- * refresh automatically and you 
- * will lose your place.. 
- * 
+ * show spots that are saved 
+ * and populate the "My Placeholders" menu
  */
 
 
 function newWindowShowBookmark(){
+	
+	/* check if saved spots exist in local storage
+	 */
+	
+	if(JSON.parse(localStorage.getItem('articleStorage')) === null){
+		articleStorage = {};
+	}
+	else{
+		articleStorage = JSON.parse(localStorage.getItem('articleStorage'));
+	}
+	
+	/* rebuild the 'My Plceholders' list */
 
-		if(window.localStorage.getItem('position') === null){
-			//console.log(window.localStorage.getItem('position'));
+	var ulOfSavedParagraphs = document.getElementById("retrieveBookmark");
+	
+	for(var i in articleStorage){
+		if(articleStorage.hasOwnProperty(i)){
+
+			var target = document.querySelector('[data-paragraph="' + articleStorage[i] + '"]');
+			var anchor = target.id;
+			
+			target.classList.add("saved");
+			
+			dataTarget = target.dataset.paragraph;
+			var listItem = document.createElement('li');
+			listItem.setAttribute('data-history',articleStorage[i]);
+			var listItemAnchor = document.createElement('a');
+			
+			var sentenceFragment = target.innerHTML;
+			sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){8})(.*)/,"$1…");
+			
+			icon = document.createElement("i");
+			icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
+			icon.addEventListener('click', clearItemFromStorage);
+		
+			var text = document.createTextNode(sentenceFragment);
+		
+			
+			listItemAnchor.appendChild(text);
+			listItemAnchor.appendChild(icon);
+			
+			listItemAnchor.classList.add('scrollto');
+			listItemAnchor.addEventListener('click', getting);
+			listItemAnchor.setAttribute("href","#"+ anchor);
+			listItem.appendChild(listItemAnchor);
+			ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
+			
+			
+			
 		}
-		else if((window.localStorage.getItem('position') !== null) || window.localStorage.getItem('position') !== 0){
+	}
+	
+	var retrievedStorage = JSON.parse(localStorage.getItem('articleStorage'));
+
+
+		/* build a key called refresh that has an 
+		 * object which is added to every time 
+		 * there is a key added? 
+		 */
+
+		if(localStorage.getItem('position') === null){
+			//console.log(localStorage.getItem('position'));
+		}
+		else if((localStorage.getItem('position') !== null) || localStorage.getItem('position') !== 0){
 			icon = document.querySelector("#bookmark");	
 			icon.classList.toggle("bookmarked");
 		}
@@ -111,8 +182,9 @@ function newWindowShowBookmark(){
 document.addEventListener("DOMContentLoaded",newWindowShowBookmark);
 
 
-/* click event */
-
+/* save my spot 
+ * paragraph popovers
+ */
 var article = document.getElementById('article');
 var paragraphs = document.querySelectorAll('#article p');
 for(var i = 0, j = paragraphs.length; i < j; i++){
@@ -120,8 +192,6 @@ for(var i = 0, j = paragraphs.length; i < j; i++){
 	paragraphs[i].setAttribute('data-toggle','popover');
 	paragraphs[i].setAttribute('id',i);
 }
-
-/* tooltip that appears over paragraph */
 
 $('[data-toggle="popover"]')
 	.popover({

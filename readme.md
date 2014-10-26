@@ -26,11 +26,12 @@ On the older Android stock browser, click events fire when scrolling
 -- Add Save My Spot to any Webpage with a single line of JavaScript (like Google Analytics)
 
 ## Team
+- @hey_benjamin (Frontline Club), developer
 - @bjacksonuk (City)
 - @hamza_m_ali (City)
 - @keilaguimaraes (City)
 - @krystinashveda (City)
-- @hey_benjamin (Frontline Club)
+
 
 ## Thank you  
 - Sense Checking (Pocket)
