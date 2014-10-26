@@ -1,9 +1,13 @@
-# Problem 
+# Save My Spot, an HTML5 placeholding tool
+
+To demo, please download as a zip and run on a local server. 
+
+## Problem 
 - if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper
 - we shouldn't mandate that longform articles be app-based
 - as a solution we present an HTML5 tool to bookmark your position(s) to come back to later 
 
-# Solution 
+## Solution 
 Bookmark tool for 
 - anyone who has a website and is able to control their codebase 
 - anyone who wants to give readers the ability to bookmark an HTML page
