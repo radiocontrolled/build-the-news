@@ -1,6 +1,6 @@
 # Save My Spot, an HTML5 placeholding tool
 
-To demo, please download as a zip and run on a local server. 
+<a href="https://radiocontrolled.github.io/build-the-news/">Demo</a>
 
 ## Problem 
 - if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper

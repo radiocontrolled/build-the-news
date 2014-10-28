@@ -16,8 +16,9 @@ function highlightBookmark(){
 
 function clearItemFromStorage(){
 
+	
 	//clear saved spot from storage
-	var key = this.parentNode.parentNode.dataset.history;
+	var key = this.parentNode.dataset.history;
 
 	for(var i in articleStorage){
 		if(articleStorage.hasOwnProperty(i)){
