@@ -59,7 +59,7 @@ function setting(data){
 	var listItemAnchor = document.createElement('a');
 	
 	var sentenceFragment = target.innerHTML;
-	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){8})(.*)/,"$1…");
+	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){5})(.*)/,"$1…");
 	
 	var icon = document.createElement("i");
 	icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
@@ -69,12 +69,12 @@ function setting(data){
 
 	
 	listItemAnchor.appendChild(text);
-	listItemAnchor.appendChild(icon);
-	
 	listItemAnchor.classList.add('scrollto');
 	listItemAnchor.addEventListener('click', getting);
 	listItemAnchor.setAttribute("href","#"+ anchor);
 	listItem.appendChild(listItemAnchor);
+	var listItemParent = listItemAnchor.parentNode;
+	listItemParent.insertBefore(icon,listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
 
@@ -138,7 +138,7 @@ function newWindowShowBookmark(){
 			var listItemAnchor = document.createElement('a');
 			
 			var sentenceFragment = target.innerHTML;
-			sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){8})(.*)/,"$1…");
+			sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){5})(.*)/,"$1…");
 			
 			icon = document.createElement("i");
 			icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
@@ -147,13 +147,13 @@ function newWindowShowBookmark(){
 			var text = document.createTextNode(sentenceFragment);
 		
 			
-			listItemAnchor.appendChild(text);
-			listItemAnchor.appendChild(icon);
-			
+			listItemAnchor.appendChild(text);			
 			listItemAnchor.classList.add('scrollto');
 			listItemAnchor.addEventListener('click', getting);
 			listItemAnchor.setAttribute("href","#"+ anchor);
 			listItem.appendChild(listItemAnchor);
+			var listItemParent = listItemAnchor.parentNode;
+			listItemParent.insertBefore(icon,listItemAnchor);
 			ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 			
 			
@@ -202,8 +202,10 @@ $('[data-toggle="popover"]')
 	})
 	.parent()
 	.delegate('button#close-me', 'click', function() {
-    	data = this.parentNode.parentNode.previousSibling.dataset.paragraph;
+		
+    	data = this.parentNode.parentNode.previousSibling.dataset.paragraph; 
     	setting(data);
+    	
     	$('[data-toggle="popover"]').popover('hide');
 	});
 

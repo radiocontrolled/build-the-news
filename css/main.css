@@ -15,13 +15,19 @@ body {
 }
 
 
-/* my placeholder menu */ 
+/**** my placeholder menu ****/ 
 
+/* font awesome icon*/
 .fa{
 	color: #000;
 }
 .fa-close{
 	color: #ca5529;
+}
+
+/* dropup menu*/
+.btn-group, .btn-group-vertical{
+	margin-top: .5em;
 }
 
 .dropdown-menu a {
@@ -32,9 +38,9 @@ body {
 }
 
 .dropdown-menu > li > i{
+	/* replace me*/
 	position:absolute!important;
 	right:0!important;
-	top:3px!important;
 }
 
 .bookmarked{
@@ -46,9 +52,6 @@ body {
 	background: #efefef;
 }
 
-.btn-group, .btn-group-vertical{
-	padding-top: .5em;
-}
 
 .scrollto{
 	display:inline-block;
