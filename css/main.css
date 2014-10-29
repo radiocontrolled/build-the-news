@@ -29,8 +29,9 @@ body {
     right: 0;
     top: -8px;
 }
-.fa-close:hover{
-	background: none;
+.fa-close:hover,
+.fa-close:active{
+	background:none!important;
 }
 
 /* dropup menu*/
