@@ -21,7 +21,7 @@ On the older Android stock browser, click events fire when scrolling
 -- onboarding function e.g. append Save My Spot to viewport bottom<br/>
 -- “favourites” page to collect saved spots from multiple stories<br/>
 - Personalisation / User Preferences<br/>
--- set / clear localStorage via icons in My Placeholder menu<br/>
+-- ~~set / clear localStorage via icons in My Placeholder menu~~<br/>
 --  behaviour of page on-reload <br/>
 - Share saved spots across multiple devices <br/>
 -- Pocket for personal use (Sense Checking) <br/>
