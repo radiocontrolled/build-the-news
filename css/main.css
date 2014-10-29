@@ -20,9 +20,17 @@ body {
 /* font awesome icon*/
 .fa{
 	color: #000;
+	border:none;
 }
+
 .fa-close{
 	color: #ca5529;
+	position: absolute;
+    right: 0;
+    top: -8px;
+}
+.fa-close:hover{
+	background: none;
 }
 
 /* dropup menu*/
@@ -30,6 +38,9 @@ body {
 	margin-top: .5em;
 }
 
+.dropdown-menu{
+	width: 150%;
+}
 .dropdown-menu a {
     white-space:normal!important;
 }
@@ -37,10 +48,8 @@ body {
 	position:relative;
 }
 
-.dropdown-menu > li > i{
-	/* replace me*/
-	position:absolute!important;
-	right:0!important;
+.dropdown-menu > li > a{
+	padding: 6px 12px; 
 }
 
 .bookmarked{

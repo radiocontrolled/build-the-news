@@ -18,7 +18,7 @@ function clearItemFromStorage(){
 
 	
 	//clear saved spot from storage
-	var key = this.parentNode.dataset.history;
+	var key = this.parentNode.parentNode.dataset.history;
 
 	for(var i in articleStorage){
 		if(articleStorage.hasOwnProperty(i)){
@@ -60,7 +60,7 @@ function setting(data){
 	var listItemAnchor = document.createElement('a');
 	
 	var sentenceFragment = target.innerHTML;
-	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){5})(.*)/,"$1…");
+	sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){3})(.*)/,"$1…");
 	
 	var icon = document.createElement("i");
 	icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
@@ -68,14 +68,14 @@ function setting(data){
 
 	var text = document.createTextNode(sentenceFragment);
 
-	
+	listItemAnchor.appendChild(icon);
 	listItemAnchor.appendChild(text);
 	listItemAnchor.classList.add('scrollto');
 	listItemAnchor.addEventListener('click', getting);
 	listItemAnchor.setAttribute("href","#"+ anchor);
 	listItem.appendChild(listItemAnchor);
-	var listItemParent = listItemAnchor.parentNode;
-	listItemParent.insertBefore(icon,listItemAnchor);
+	//var listItemParent = listItemAnchor.parentNode;
+	//listItemParent.insertBefore(icon,listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
 
@@ -139,7 +139,8 @@ function newWindowShowBookmark(){
 			var listItemAnchor = document.createElement('a');
 			
 			var sentenceFragment = target.innerHTML;
-			sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){5})(.*)/,"$1…");
+			sentenceFragment = sentenceFragment.replace(/(([^\s]+\s\s*){3})(.*)/,"$1…");
+			//sentenceFragment = sentenceFragment.substring(0,25);
 			
 			icon = document.createElement("i");
 			icon.classList.add("fa","fa-close","navbar-toggle","delete-localStorage");
@@ -147,14 +148,14 @@ function newWindowShowBookmark(){
 		
 			var text = document.createTextNode(sentenceFragment);
 		
-			
+			listItemAnchor.appendChild(icon);
 			listItemAnchor.appendChild(text);			
 			listItemAnchor.classList.add('scrollto');
 			listItemAnchor.addEventListener('click', getting);
 			listItemAnchor.setAttribute("href","#"+ anchor);
 			listItem.appendChild(listItemAnchor);
-			var listItemParent = listItemAnchor.parentNode;
-			listItemParent.insertBefore(icon,listItemAnchor);
+			//var listItemParent = listItemAnchor.parentNode;
+			//listItemParent.insertBefore(icon,listItemAnchor);
 			ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 			
 			
