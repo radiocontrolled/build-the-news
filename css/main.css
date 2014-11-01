@@ -14,10 +14,7 @@ body {
 	font-weight: bold!important;
 }
 
-
-/**** my placeholder menu ****/ 
-
-/* font awesome icon*/
+/* font-awesome icons*/
 .fa{
 	color: #000;
 	border:none;
@@ -34,7 +31,7 @@ body {
 	background:none!important;
 }
 
-/* dropup menu*/
+/* dropup "My Placeholders" menu*/
 .btn-group, .btn-group-vertical{
 	margin-top: .5em;
 }
@@ -53,8 +50,10 @@ body {
 	padding: 6px 12px; 
 }
 
-.bookmarked{
-	color: pink;
+/*style of saved paragraphs*/
+p,
+.saved{
+	 transition: background-color 0.5s ease;
 }
 
 .saved,
@@ -62,7 +61,11 @@ body {
 	background: #efefef;
 }
 
-
 .scrollto{
 	display:inline-block;
+}
+
+/* day 1 demo*/
+.bookmarked{
+	color: pink;
 }

@@ -74,8 +74,6 @@ function setting(data){
 	listItemAnchor.addEventListener('click', getting);
 	listItemAnchor.setAttribute("href","#"+ anchor);
 	listItem.appendChild(listItemAnchor);
-	//var listItemParent = listItemAnchor.parentNode;
-	//listItemParent.insertBefore(icon,listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
 
@@ -86,21 +84,10 @@ function getting(){
 	
 	var key = this.parentNode.dataset.history;
 	var storageRetrieved = localStorage.getItem(key);
-	//console.log("storage retrieved: " + storageRetrieved);
-	
-	//end test
-	
-	/* locate paragraph in document */ 
-	//var anchor = document.querySelector('[data-paragraph="' + dataset + '"]');
-
-	
-	// scroll to the element	
 			
 }		
 
-function scrollTo(location){
-	
-}
+
 
 
 /* when the user opens a new page 
@@ -154,8 +141,6 @@ function newWindowShowBookmark(){
 			listItemAnchor.addEventListener('click', getting);
 			listItemAnchor.setAttribute("href","#"+ anchor);
 			listItem.appendChild(listItemAnchor);
-			//var listItemParent = listItemAnchor.parentNode;
-			//listItemParent.insertBefore(icon,listItemAnchor);
 			ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 			
 			
@@ -190,9 +175,12 @@ document.addEventListener("DOMContentLoaded",newWindowShowBookmark);
 var article = document.getElementById('article');
 var paragraphs = document.querySelectorAll('#article p');
 for(var i = 0, j = paragraphs.length; i < j; i++){
+	
 	paragraphs[i].setAttribute('data-paragraph','pg-' + i);
 	paragraphs[i].setAttribute('data-toggle','popover');
 	paragraphs[i].setAttribute('id',i);
+	
+	
 }
 
 $('[data-toggle="popover"]')
@@ -204,15 +192,10 @@ $('[data-toggle="popover"]')
 	})
 	.parent()
 	.delegate('button#close-me', 'click', function() {
-		
     	data = this.parentNode.parentNode.previousSibling.dataset.paragraph; 
     	setting(data);
-    	
     	$('[data-toggle="popover"]').popover('hide');
 	});
-
-
-
 
 
 
