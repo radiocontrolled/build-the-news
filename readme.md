@@ -1,6 +1,6 @@
-# Save My Spot, an HTML5 placeholding tool
+# Save My Spot
 
-This project arose from _The Times_ and _The Sunday Times_ <a href="http://buildthenews.wordpress.com/">Build The News</a> hack weekend in October 2014, where it won 'Special Commendation'. Here's the <a href="https://radiocontrolled.github.io/build-the-news/">demo</a>.
+Save My Spot is a placeholding tool that relies on HTML5 local storage. This project arose from _The Times_ and _The Sunday Times_ <a href="http://buildthenews.wordpress.com/">Build The News</a> hack weekend in October 2014, where it won 'Special Commendation'. Here's the <a href="https://radiocontrolled.github.io/build-the-news/">demo</a>.
 
 ## Problem 
 * if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper
@@ -30,12 +30,11 @@ Bookmark tool for
  * Add Save My Spot to any Webpage with a single line of JavaScript
 
 ## Team
-* @hey_benjamin (Frontline Club), developer
-* @bjacksonuk (City)
-* @hamza_m_ali (City)
-* @keilaguimaraes (City)
-* @krystinashveda (City)
-
+* Hamza Ali, @hamza_m_ali (City University)
+* Alison Benjamin, @hey_benjamin (Frontline Club), developer
+* Keila Guimares, @keilaguimaraes (City University)
+* Ben Jackson, @bjacksonuk (City University)
+* Krystina Shveda, @krystinashveda (City University)
 
 ## Thank you  
 * Sense Checking (Pocket)
