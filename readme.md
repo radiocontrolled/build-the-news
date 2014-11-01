@@ -1,33 +1,33 @@
 # Save My Spot, an HTML5 placeholding tool
 
-<a href="https://radiocontrolled.github.io/build-the-news/">Demo</a>
+This project arose from _The Times_ and _The Sunday Times_ <a href="http://buildthenews.wordpress.com/">Build The News</a> hack weekend in October 2014, where it won 'Special Commendation'. Here's the <a href="https://radiocontrolled.github.io/build-the-news/">demo</a>.
 
 ## Problem 
 * if you're reading a longform article on a website, you can't placehold (or placehold in multiple spots) as you might in a newspaper
-* we shouldn't mandate that longform articles be app-based
+* Web readers may expect app-like behaviour from Websites
 * as a solution we present an HTML5 tool to bookmark your position(s) to come back to later 
 
 ## Solution 
 Bookmark tool for 
 * anyone who has a website and is able to control their codebase 
-* anyone who wants to give readers the ability to bookmark an HTML page
+* anyone who wants to give readers the ability to place bookmarks on an HTML page
 
-## Known Issues 
-On the older Android stock browser, click events fire when scrolling
+## Known issues 
+* On the older Android stock browser, click events fire when scrolling
 
-## Roadmap Ideas 
+## Roadmap ideas from the Build the News hack weekend 
 * UI<br/>
-** smooth scrolling<br/>
-** onboarding function e.g. append Save My Spot to viewport bottom<br/>
-** “favourites” page to collect saved spots from multiple stories<br/>
-* Personalisation / User Preferences<br/>
-** ~~set / clear localStorage via icons in My Placeholder menu~~<br/>
-**  behaviour of page on-reload <br/>
-* Share saved spots across multiple devices <br/>
-** Pocket for personal use (Sense Checking) <br/>
-** send saved spots to other users <br/>
-* Publisher-friendly<br/>
-** Add Save My Spot to any Webpage with a single line of JavaScript (like Google Analytics)
+ * smooth scrolling
+ * onboarding function e.g. append Save My Spot to viewport bottom
+ * “favourites” page to collect saved spots from multiple stories
+* Personalisation / User Preferences
+ * ~~set / clear localStorage via icons in My Placeholder menu~~
+ *  behaviour of page on-reload 
+* Share saved spots across multiple devices 
+ * Pocket for personal use (Sense Checking) 
+ * send saved spots to other users 
+* Publisher-friendly
+ * Add Save My Spot to any Webpage with a single line of JavaScript
 
 ## Team
 * @hey_benjamin (Frontline Club), developer
