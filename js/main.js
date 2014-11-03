@@ -73,6 +73,7 @@ function setting(data){
 	listItemAnchor.classList.add('scrollto');
 	listItemAnchor.addEventListener('click', getting);
 	listItemAnchor.setAttribute("href","#"+ anchor);
+	listItemAnchor.setAttribute("data-scroll","");
 	listItem.appendChild(listItemAnchor);
 	ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 	
@@ -140,6 +141,7 @@ function newWindowShowBookmark(){
 			listItemAnchor.classList.add('scrollto');
 			listItemAnchor.addEventListener('click', getting);
 			listItemAnchor.setAttribute("href","#"+ anchor);
+			listItemAnchor.setAttribute("data-scroll","");
 			listItem.appendChild(listItemAnchor);
 			ulOfSavedParagraphs.appendChild(listItem); /* prepend to the beginning of the list */
 			
@@ -198,4 +200,11 @@ $('[data-toggle="popover"]')
 	});
 
 
+
+/* smooth scroll 
+ see https://github.com/cferdinandi/smooth-scroll
+ * */
+smoothScroll.init({
+	updateURL: false // do not update the URL with the anchor hash on scroll
+});
 
