@@ -61,6 +61,19 @@ p,
 	background: #efefef;
 }
 
+#article p{
+	padding: 1em;
+	margin: 1em -1em;
+	
+}
+@media (max-width: 400px) { 
+	#article p{
+		margin: 1em;
+	}
+}
+
+/* scrolling */
+
 .scrollto{
 	display:inline-block;
 }
@@ -69,3 +82,4 @@ p,
 .bookmarked{
 	color: pink;
 }
+
